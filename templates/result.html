@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+        {%for i in range(length)%}
+        <div><h1>{{selectedTitle[i]}}</h1></div>
+        <div><a href={{selectedLink[i]}}>{{selectedLink[i]}}</a></div>
+        {%endfor%}
+    </div>
+</body>
+</html>
