@@ -29,7 +29,9 @@ def getFormValues():
 
 
 #searching algorithm       
-def searchFun(search):     
+def searchFun(search):
+    selectedLink.clear()   
+    selectedTitle.clear()   
     response = requests.get("https://www.google.com/search?q=" + search)
     print(response.url)
     soup = BeautifulSoup(response.text, 'lxml')

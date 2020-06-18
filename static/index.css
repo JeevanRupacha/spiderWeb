@@ -6,6 +6,7 @@
     font-family: 'Alegreya', serif;
 }
 
+/* stackover flow */
 html {
     overflow: scroll;
     overflow-x: hidden;
@@ -38,7 +39,7 @@ a{
 .logo{
   height:100%;
   margin-left: 3em;
-  background-image: url('../static/image/spiderweb-logo.png');
+  background-image: url('./static/image/spiderweb-logo.png');
   background-position: center;
   background-size: 6em;
   background-repeat: no-repeat; 
@@ -155,6 +156,8 @@ input{
     border-radius: 10px;
     margin: 0 auto;
     margin: 1em;
+    text-align: left;
+    padding: 1rem;
     word-wrap: break-word;
     overflow: scroll;
 }
