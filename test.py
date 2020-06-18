@@ -8,9 +8,13 @@ selectedTitle = []
 linkHtml = []
 html = Markup("<h1>This is test </h1>")
 
+
+
 @app.route('/')
 def render_html():
     return render_template('./index.html',html=html)
+
+
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def getFormValues():
@@ -22,7 +26,9 @@ def getFormValues():
     else:
         return "submiting from error"
 
- #searching algorithm       
+
+
+#searching algorithm       
 def searchFun(search):     
     response = requests.get("https://www.google.com/search?q=" + search)
     print(response.url)
@@ -43,8 +49,17 @@ def searchFun(search):
             selectedTitle.append(h3.get_text())
     display()    
 
+
+
 print(len(selectedTitle))
 print(len(selectedLink))
+
+
+
+#calcuation for each linked website function 
+def scrabEachWebsite():
+    pass
+
 
 
 def display():
@@ -52,6 +67,8 @@ def display():
         print(selectedLink[i])
         print(selectedTitle[i] + "\n\n")
  
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run()

@@ -26,7 +26,7 @@ a{
 
 
 #search-nav #container{
-    background-image: linear-gradient(rgb(0, 255, 255),rgba(255, 238, 0, 0.637));
+    background-image: linear-gradient(#00CCFF,rgba(255, 238, 0, 0.637));
     height: 10em;
     width: 100vw;
     display: flex;
@@ -52,14 +52,26 @@ text-align: center;
 
 .search input[type="text"]{
     font-size: large;
-   width: 35vw;
-   height: 40px;
+   width: 40vw;
+   height: 50px;
    outline-offset: 0;
    border-radius: 50px;
    padding-left: 15px;
+   border: 1px solid silver;
 }
 
-.search input[type="text"]:focus{
+.search input[type="submit"]{
+   height: 40px;
+   width: 5em;
+   outline-offset: 0;
+   border-radius: 50px;
+   font-size: 1.2rem;
+   cursor: pointer;
+   border: none;
+   
+}
+
+.search input[type="text"]:focus,.search input[type="submit"]:focus{
     border-radius: 50px;
     outline: none;
     border: 2px solid blue;
@@ -119,6 +131,10 @@ input{
     
 }
 
+
+/* Start of the component result section */
+
+
 .middle-div{
     flex-grow: 11;
     height: 75vh;
@@ -126,14 +142,8 @@ input{
     background: white;
     background-color: #d3d3d3 ;
     max-width: 55%;
+    text-align: center;
 }
-
-.left-div{
-    height: 75vh;
-    flex-grow: 2;
-    min-width: 20%;
-}
-/* Start of the component result section */
 
 .result-component{
     max-width: 56vw;
@@ -145,14 +155,22 @@ input{
     overflow: scroll;
 }
 
+.middle-div img{
+    height: 70vh;
+}
+
 /* End of the component result section */
 
 
 /* Start of the middle left div  */
 
 .left-div{
-    padding-left: 10px;
+    height: 75vh;
+    flex-grow: 2;
+    min-width: 20%;
+    padding-left: 40px;
 }
+
 
 .left-div-container ul li{
   font-size: 1.5em;
@@ -181,9 +199,11 @@ border-radius: 8px;
 
 .right-component{
     background-color: rgb(228, 228, 228);
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     word-wrap: break-word;
     margin: 15px;
+    padding: 10px;
 }
 
 /* End of the right  div  */
