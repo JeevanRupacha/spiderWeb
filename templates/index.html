@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./static/index.css">
+    <title>SpiderWeb</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/index.css') }}">
     <link rel="stylesheet" href="./static//fonts/css/all.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="./static/fonts/js/all.min.js"></script>
 
 </head>
@@ -36,13 +37,9 @@
 
    <section id="main-section">
     <div id="container">
-        
         <!-- left section  -->
         <div class="left-div">
-
-            <h1>Categories</h1>
-            <hr/>
-
+            <h1>Categories</h1><hr/>
             <div class="left-div-container">
                 <ul>
                     <li><a><i class="fab fa-python"></i><span>Python</span></li>
@@ -57,15 +54,31 @@
 
         <!-- middle result section  -->
         <div class="middle-div">
+
             
-            <img src="./static/image/search.png" alt="seaching minions image ">
+           
+        {%if length != 0 %}
+         <span class="go-top">🔼</span>
+            {%for i in range(length)%}
+            <div class="result-component">
+                <h3>{{selectedTitle[i]}}</h3>
+                <a href="{{selectedLink[i]}}" target="_blank">{{selectedLink[i]}}</a>
+                <div class="content">
+                    {{html[i]}}
+                </div>
+            </div>
+            {%endfor%}
+    
+        {%else%}
+            <img class="robo-img" src="./static/images/search.png" alt="seaching minions image ">
+        {%endif%}
         </div>
             
         <div class="right-div">
             <h2>Notice</h2>
             <hr/>
 
-            <div class="right-component">Lorem sdfkjdakjsfajfasjkfhksjfakfskjfasjkfajsfakjfskfassffwefeipsum d</div>
+            <div class="right-component">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, blanditiis voluptatum. Molestiae adipisci aperiam, ex aliquam fugit laudantium ullam corporis!</div>
         </div>
     </div>
    </section>

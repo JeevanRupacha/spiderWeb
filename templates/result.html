@@ -7,10 +7,21 @@
 </head>
 <body>
     <div id="result">
-        {%for i in range(length)%}
-        <div><h1>{{selectedTitle[i]}}</h1></div>
-        <div><a href={{selectedLink[i]}}>{{selectedLink[i]}}</a></div>
-        {%endfor%}
+
+        {%if length != 0%}
+
+            {%for i in range(length)%}
+            <div class="result-component">
+                <h3>{{selectedTitle[i]}}</h3>
+                <a href="{{selectedLink[i]}}" target="_blank">{{selectedLink[i]}}</a>
+        
+                <div class="content">
+                    {{html[i]}}
+                </div>
+            </div>
+            {%endfor%}
+        {%elif%}
+        {%%endif}
     </div>
 </body>
 </html>
