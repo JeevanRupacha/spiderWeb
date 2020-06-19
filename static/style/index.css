@@ -77,7 +77,7 @@ a {
 .logo {
   height: 100%;
   margin-left: 3em;
-  background-image: url(./static/images/spiderweb-logo.png);
+  background-image: url(/static/images/spiderweb-logo.png);
   background-position: center;
   background-size: 6em;
   background-repeat: no-repeat;
@@ -254,6 +254,7 @@ input {
   padding: 0.3em;
   margin-top: 0.8em;
   color: rgb(146, 127, 21);
+  cursor: pointer;
 }
 
 .left-div-container ul li span {
