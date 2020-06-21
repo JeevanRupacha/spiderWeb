@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpiderWeb</title>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style/index.css') }}">
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='style/index.css') }}">
+    <link rel= "stylesheet" href= "../static/style/index.css">
     <link rel="stylesheet" href="./static//fonts/css/all.min.css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="./static/fonts/js/all.min.js"></script>
@@ -55,10 +56,11 @@
         <!-- middle result section  -->
         <div class="middle-div">
 
-            
-           
+
+
+
         {%if length != 0 %}
-         <span class="go-top">🔼</span>
+
             {%for i in range(length)%}
             <div class="result-component">
                 <h3>{{selectedTitle[i]}}</h3>
@@ -68,10 +70,12 @@
                 </div>
             </div>
             {%endfor%}
-    
+        
         {%else%}
-            <img class="robo-img" src="./static/images/search.png" alt="seaching minions image ">
+            <img class="robo-img" src="/static/images/search.png" alt="seaching minions image ">
         {%endif%}
+           
+       
         </div>
             
         <div class="right-div">
