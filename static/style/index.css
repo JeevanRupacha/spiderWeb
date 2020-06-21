@@ -1,0 +1,389 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Alegreya', serif;
+}
+
+
+/* Variables */
+
+:root
+{
+    --primary-color : rgb(150, 143, 143);
+    --scrollbar-color: rgb(182, 182, 197);
+}
+
+pre
+    {
+    background-color: rgba(6, 3, 48, 0.884);
+    color: var(--primary-color);
+    }
+
+img
+    {
+    max-width: 100%;
+    }
+
+
+/* stackover flow */
+html
+    {
+    overflow: scroll;
+    overflow-x: hidden;
+    }
+
+::-webkit-scrollbar 
+    {
+    width: 10px;
+    /*Removescrollbarspace*/
+    background: transparent;
+    /*Optional:;
+    justmakescrollbarinvisible*/
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb  
+    {
+    background: var(--scrollbar-color);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    }
+
+/*all a tag*/
+a
+    {
+    text-decoration: none;
+    }
+
+
+
+#search-nav #container
+    {
+    background-image: -webkit-gradient(linear,left top, left bottom,from(#00CCFF),to(rgba(255, 238, 0, 0.637)));
+    background-image: -o-linear-gradient(#00CCFF,rgba(255, 238, 0, 0.637));
+    background-image: linear-gradient(#00CCFF,rgba(255, 238, 0, 0.637));
+    height: 10em;
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    }
+
+.logo
+    {
+    height:100%;
+    margin-left: 3em;
+    background-image: url(/static/images/spiderweb-logo.png);
+    background-position: center;
+    background-size: 6em;
+    background-repeat: no-repeat; 
+    -webkit-box-flex: 4; 
+        -ms-flex-positive: 4; 
+            flex-grow: 4;
+    }
+
+.search
+    {
+    -webkit-box-flex: 5;
+        -ms-flex-positive: 5;
+            flex-grow: 5;
+    text-align: center;
+    }
+
+.search input[type="text"]
+    {
+    font-size: large;
+    width: 40vw;
+    height: 50px;
+    outline-offset: 0;
+    border-radius: 50px;
+    padding-left: 15px;
+    border: 1px solid silver;
+    }
+
+.search input[type="submit"]
+    {
+    height: 40px;
+    width: 5em;
+    outline-offset: 0;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;  
+    }
+
+.search input[type="text"]:focus,.search input[type="submit"]:focus
+    {
+    border-radius: 50px;
+    outline: none;
+    border: 2px solid blue;
+    }
+
+
+.links ul li 
+    {
+    display: inline;
+    margin-right:7%;
+    font-size: larger;
+    font-weight: 500;
+    color: red;
+    }
+
+.links ul li span
+    {
+    margin: 8px;
+    color: #1C1C1C;
+    }
+
+.links ul li span:hover
+    {
+    color: blue;
+    }
+
+.star:hover
+    {
+    color: blue;
+    }
+
+.links
+    {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    -webkit-box-flex: 3;
+        -ms-flex-positive: 3;
+            flex-grow: 3;
+    margin-top: 1em;
+    }
+
+input
+    {
+    margin: 0;
+    padding:0;
+    }
+
+/* End of head-nav section */
+
+/* Start of color manager section  */
+
+.color-manager
+    {
+    width: 100vw;
+    height: 30px;
+    /* background-image: linear-gradient(rgba(255, 255, 0, 0.671),rgba(255, 255, 255, 0.856)); */
+     background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(255, 255, 0, 0.671)),to(#d3d3d3) );
+     background-image: -o-linear-gradient(rgba(255, 255, 0, 0.671),#d3d3d3 );
+     background-image: linear-gradient(rgba(255, 255, 0, 0.671),#d3d3d3 ); 
+    }
+
+/* End of color manager section  */
+
+/* start of color main middle section  */
+
+#main-section #container
+    {
+    background-color: #d3d3d3;
+    width: 100%;
+    height:100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    overflow: hidden;   
+    }
+
+
+/* Start of the component result section */
+
+.go-top
+    {
+    position: absolute;
+    right: 0px;
+    font-size: 5px;
+    }
+
+
+.middle-div
+    {
+    -webkit-box-flex: 11;
+        -ms-flex-positive: 11;
+            flex-grow: 11;
+    height: 80vh;
+    overflow: scroll;
+    background: white;
+    background-color: #d3d3d3 ;
+    max-width: 55%;
+    text-align: center;
+    font-size: larger;
+    }
+
+.result-component 
+    {
+    max-width: 56vw;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+    margin: 0 auto;
+    margin: 1em;
+    text-align: left;
+    padding: 1rem;
+    word-wrap: break-word;
+    overflow: scroll;
+    font-size: 23px;
+    line-height: 2em;
+  
+    }
+
+.result-component >ul>li
+    {
+    list-style: a;
+    }
+
+.middle-div .robo-img 
+    {
+    height: 70vh;
+    }
+
+/* End of the component result section */
+
+
+/* Start of the middle left div  */
+
+.left-div
+    {
+    height: 75vh;
+    -webkit-box-flex: 2;
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+    max-width: 15%;
+    padding-left: 20px;
+    flex-grow: 1;
+    }
+
+
+.left-div-container ul li
+    
+    {
+    font-size: 1.5em;
+    padding: .3em;
+    margin-top: .8em;
+    color: rgb(146, 127, 21);
+    }
+
+
+.left-div-container ul li span
+    
+    {
+    margin-left:4px;
+    color: rgb(6, 6, 34)
+    }
+
+.left-div-container ul li:hover
+    {
+    background: rgba(180, 178, 178, 0.788);
+    border-radius: 8px;
+    }
+
+
+/* start of the right  div  */
+
+.right-div
+    {
+    height: 75vh;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    max-width: 25%;
+    padding: .7em;
+    }
+
+
+.right-component
+    {
+    background-color: rgb(228, 228, 228);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    word-wrap: break-word;
+    margin: 15px;
+    padding: 10px;
+    }
+
+/* End of the right  div  */
+
+
+/* End of the middle left div  */
+
+
+/* End of color main middle section  */
+
+/* Start of color fotter section  */
+
+.footer-color-manager
+    {
+    width: 100vw;
+    height: 30px;
+    background-image: -webkit-gradient(linear ,left top, left bottom ,from(#d3d3d3) ,color-stop(#d3d3d3) ,to(rgb(7, 7, 7)));
+    background-image: -o-linear-gradient(#d3d3d3 ,#d3d3d3 ,rgb(7, 7, 7));
+    background-image: linear-gradient(#d3d3d3 ,#d3d3d3 ,rgb(7, 7, 7));
+    }
+
+#footer-section
+    {
+    background: -webkit-linear-gradient(360deg, #1C1C1C 10%, #222020 360%)
+    }
+
+.footer-links
+    {
+    width: 100vw;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: larger;
+    color: white;
+    }
+
+.footer-links div
+    {
+    margin: 1em;
+    }
+
+.tag
+    {
+    text-align: center;
+    font-size: large;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom:20px;
+    color: aliceblue;
+    }
+
+/* End of color fotter section  */
+
+
