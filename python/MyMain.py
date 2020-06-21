@@ -14,15 +14,15 @@ class MyMain:
 
 
 
-    def loopTheLink(self,i,links):
-        h3 = links[i].find('h3')
-        if h3 != None:
+    def loopTheLink(self, i, links):
+            h3 = links[i].find('h3')
+            if h3 != None:
             #self.end the link href to selectedLink list
             #text.split("&",1)[0] replace all the string after the '&' character
-            aLink = links[i].get('href').replace('/url?q=',"").split('&',1)[0]
-            self.selectedLink.append(aLink.split('%',1)[0])
-            self.selectedTitle.append(h3.get_text())
-
+                aLink = links[i].get('href').replace('/url?q=',"").split('&',1)[0]
+                self.selectedLink.append(aLink.split('%',1)[0])
+                self.selectedTitle.append(h3.get_text())
+      
     #searching algorithm       
     def searchFun(self,search):
         self.selectedLink.clear()   
@@ -32,22 +32,28 @@ class MyMain:
         soup = BeautifulSoup(response.text, 'lxml')
         #google result kCrYT class contains the links tags 
         #selecting <a> tag inside all the kCrYT class
-        anker = soup.select('.kCrYT a')
+        links = soup.select('.kCrYT a')
         #looping all the anker tag for links and head extract
-        threads = []
-        for i in range(len(anker)):
-            t = threading.Thread(target=self.loopTheLink, args=[i, anker])
-            t.start()
-            threads.append(t)
+        for i in range(len(links)):
+            self.loopTheLink(i,links)
 
-        for thread in threads:
-            thread.join()
+
+
+
+
+
+        #     t = threading.Thread(target=self.loopTheLink, args=[i, anker])
+        #     t.start()
+        #     threads.append(t)
+
+        # for thread in threads:
+        #     thread.join()
         
 
     
 
     #calcuation for each linked website function 
-    def scrabEachWebsite(self, url, title):       
+    def scrabEachWebsite(self, url):       
         if "youtube.com" not in url:
             responseweb = requests.get(url,headers=self.headers)
             soupweb = BeautifulSoup(responseweb.text, 'lxml')
@@ -84,6 +90,11 @@ class MyMain:
         if (soup.find(class_={'content-main'})):
             child = soup.find(class_={'content-main'}).find_all('div')
             return self.articleExtractor(child)
+        
+        #content-main id tag
+        if (soup.find(id={'main_content'})):
+            child = soup.find(id={'main_content'}).find_all('div')
+            return self.articleExtractor(child)
 
         #content-main class tag
         if (soup.find(class_={'article-container'})):
@@ -97,7 +108,7 @@ class MyMain:
     def articleExtractor(self,child):
         big = ""
         for div in child:
-            if(len(big)< len(div.get_text)):
+            if(len(big)< len(div)):
                 big = div
         self.searchResultDataLists.append(Markup(big))
 
