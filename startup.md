@@ -1,20 +1,18 @@
 
-        <h3>Instruction for startup guide </h3>
+   <h3>Instruction for startup guide </h3>
         <h3>Github instruction </h3>
         <p>First you should create a project directory or folder where the project is going to be initialize .</p><br>
-        <p>Start the git -> command <strong>git init </strong> </p><br>
-        <p>create your own branch -> command <strong>git checkout -b "your branch name" </strong> <i> note: if your have already branch eliminate -b </i> </p> <br>
-        <p> add repo inatialize command -> <strong> git remote add origin git@github.com:JeevanRupacha/spiderWeb.git < strong> or <strong> git remote add origin https://github.com/JeevanRupacha/spiderWeb.git <strong> </p> <br>
+        <p>Start the git  command --> <strong>git init </strong> </p><br>
+        <p>create your own branch  command --> <strong>git checkout -b "your branch name" </strong> <i> note: if your have already branch eliminate -b </i> </p> <br>
+        <p> add repo inatialize command -> <strong> git remote add origin git@github.com:JeevanRupacha/spiderWeb.git < strong> or <strong> git remote add origin https://github.com/JeevanRupacha/spiderWeb.git </strong> </p> <br>
         <p>pull the repo -> command <strong> git pull git@github.com:JeevanRupacha/spiderWeb.git </strong> or <strong> git pull https://github.com/JeevanRupacha/spiderWeb.git</strong></p><br>
-        <i>Note : you can use git fetch origin or git clone link </i><br>
+        <p> <i>Note : you can use git fetch origin or git clone link </i></p><br/>
 
-
-        <h1>Well done !!😃😃😃</h1> 
+        <h1>Well done !!😎😎</h1> 
         <p>Now you can work </p><br><br>
 
         <p> adding your file to version control command-> <strong>git add . <i> all file added</i> git add "filename" <strong></p><br>
         <p> saving the changes or committment the file  command-> <strong> git commit -m "your message" </strong></p> 
-
 
         <h3>After you finished project </h3>
         <h1>Merging Project </h1>
@@ -43,6 +41,5 @@
                 ssh-keygen               --> generate ssh key 
                 cat "path ....rsa.pub"    --> get public ssh key
                 ssh-T git@github.com      --> Access the ssh key 
-                rm -rf .git     ----> delete all the git repo which was initialized
-
+                rm -rf .git     ----> delete all the git repo which was initialize
         </pre>
