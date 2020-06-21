@@ -98,9 +98,15 @@ a {
   width: 40vw;
   height: 50px;
   outline-offset: 0;
-  border-radius: 50px;
+  border-radius: 5px;
   padding-left: 15px;
   border: 1px solid silver;
+  outline-style: none;
+  color: grey;
+}
+
+::placeholder {
+  opacity: 0.3;
 }
 
 .search input[type="submit"] {
@@ -115,9 +121,29 @@ a {
 
 .search input[type="text"]:focus,
 .search input[type="submit"]:focus {
-  border-radius: 50px;
+  border-radius: 5px;
   outline: none;
-  border: 2px solid green;
+  background: #ffffff;
+  border-color: blue;
+  /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0125),
+    0 0 8px rgba(34, 139, 230, 0.5); */
+}
+.search form {
+  position: relative;
+}
+/* btn for search bar */
+.btn-in-searchbar {
+  position: absolute;
+  outline: 0;
+  cursor: pointer;
+  color: #31d4e0;
+  font-size: 1.2rem;
+  border: 0;
+  left: 83%;
+  margin-top: 0.9rem;
+  white-space: nowrap;
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .links ul li {
