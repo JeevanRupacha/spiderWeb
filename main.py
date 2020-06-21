@@ -1,4 +1,4 @@
-from python import MyMain
+from PythonBack import MyMain
 from flask import Flask, render_template,request
 import requests
 import time
