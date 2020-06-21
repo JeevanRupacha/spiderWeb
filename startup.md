@@ -1,14 +1,5 @@
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="result">
-        <h3>Instruction for startup guide </h3>
 
+        <h3>Instruction for startup guide </h3>
         <h3>Github instruction </h3>
         <p>First you should create a project directory or folder where the project is going to be initialize .</p><br>
         <p>Start the git -> command <strong>git init </strong> </p><br>
@@ -52,12 +43,6 @@
                 ssh-keygen               --> generate ssh key 
                 cat "path ....rsa.pub"    --> get public ssh key
                 ssh-T git@github.com      --> Access the ssh key 
-                rm -rf .git     ----> delete all the git repo which was initialized 
-
-            
+                rm -rf .git     ----> delete all the git repo which was initialized
 
         </pre>
-
-    </div>
-</body>
-</html>
