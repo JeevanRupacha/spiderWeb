@@ -1,10 +1,10 @@
 import requests
 import time
-import threading
 from bs4 import BeautifulSoup
 from flask import Flask, request, render_template, Markup
+from concurrent.futures import ThreadPoolExecutor
 # from multiprocessing import Pool
-class MyMain:
+class SearchClass:
     def __init__(self):
         # self.app = Flask(__name__, static_url_path='/static')
         self.selectedLink = []
@@ -14,12 +14,12 @@ class MyMain:
 
 
 
-    def loopTheLink(self, i, links):
-            h3 = links[i].find('h3')
+    def loopTheLink(self,link):
+            h3 = link.find('h3')
             if h3 != None:
             #self.end the link href to selectedLink list
             #text.split("&",1)[0] replace all the string after the '&' character
-                aLink = links[i].get('href').replace('/url?q=',"").split('&',1)[0]
+                aLink = link.get('href').replace('/url?q=',"").split('&',1)[0]
                 self.selectedLink.append(aLink.split('%',1)[0])
                 self.selectedTitle.append(h3.get_text())
       
@@ -34,10 +34,15 @@ class MyMain:
         #selecting <a> tag inside all the kCrYT class
         links = soup.select('.kCrYT a')
         #looping all the anker tag for links and head extract
-        for i in range(len(links)):
-            self.loopTheLink(i,links)
+        # for i in range(len(links)):
+        #     self.loopTheLink(i,links)
 
 
+        ##Multithreading for looping All links
+        try:
+            with ThreadPoolExecutor(max_workers=10) as executor:
+                executor.map(self.loopTheLink,links)
+        except Exception as e: print(e)
 
 
 
@@ -60,6 +65,12 @@ class MyMain:
             self.webDataExtract(soupweb)
            
         
+
+
+        #finding the largest div and return alrgest div
+        # def searchEachDiv(self,soup,tag):
+        #     child = soup.find(tag).find_all('div')
+        #     return self.articleExtractor(child)
 
 
     #Extract the web data
@@ -112,10 +123,5 @@ class MyMain:
         self.searchResultDataLists.append(Markup(big))
 
 
-
-    def display(self):
-        for i in range(len(self.selectedTitle)):
-            print(self.selectedLink[i])
-            print(self.selectedTitle[i] + "\n\n")
     
 
