@@ -367,3 +367,27 @@ input {
 }
 
 /* End of color fotter section  */
+
+/* top icon */
+#return-to-top {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 3rem;
+  height: 3rem;
+
+  bottom: 60px;
+  right: 20px;
+  text-decoration: none;
+  border-radius: 35px;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+
+#return-to-top .fa-arrow-up {
+  color: #fff;
+  position: relative;
+  left: 14px;
+  top: 10px;
+  font-size: 20px;
+  vertical-align: middle;
+}
