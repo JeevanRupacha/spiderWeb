@@ -57,7 +57,6 @@ class MyMain:
         if "youtube.com" not in url:
             responseweb = requests.get(url,headers=self.headers)
             soupweb = BeautifulSoup(responseweb.text, 'lxml')
-            print(soupweb)
             self.webDataExtract(soupweb)
            
         

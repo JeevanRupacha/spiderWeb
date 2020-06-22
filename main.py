@@ -3,7 +3,7 @@ from flask import Flask, render_template,request
 import requests
 import time
 import threading
-import concurrent.futures
+from concurrent.futures import ProcessPoolExecutor, as_completed
 import multiprocessing
 
 app = Flask(__name__)
@@ -25,20 +25,39 @@ def getFormValues():
         search = data['search-text']
         m.searchFun(search)
 
-        try:
-            with concurrent.futures.ThreadPoolExecutor() as executor:
-                executor.map( m.scrabEachWebsite,m.selectedLink)
+        # try:
+        #     with ProcessPoolExecutor(max_workers=4) as executor:
+        #         start = time.time()
+        #         futures = [executor.submit(m.scrabEachWebsite, url) for url in m.selectedLink]
+        #         results = []
+        #         for result in as_completed(futures):
+        #             results.append(result)
+        #         end = time.time()
+        #         print("Time Taken: {:.6f}s".format(end - start))
+        # except:
+        #     print(EOFError)
 
-        except:
-            print("error")
+
+
+        # try:
+        #     with concurrent.futures.ThreadPoolExecutor() as executor:
+        #         executor.map( m.scrabEachWebsite,m.selectedLink)
+
+        # except:
+        #     raise(Exception)
         # process = []
-        # for i in range(len(m.selectedLink)):
-        #     p = multiprocessing.Process(target=m.scrabEachWebsite, args=[m.selectedLink[i]])
-        #     p.start()
-        #     process.append(p)
+        # try:
+        #     for i in range(len(m.selectedLink)):
+        #         p = multiprocessing.Process(target=m.scrabEachWebsite, args=[m.selectedLink[i]])
+        #         p.start()
+        #         process.append(p)
 
-        # for pro in process:
-        #     pro.join()
+        #     for pro in process:
+        #         pro.join()
+        # except:
+        #     print("error herer")
+        for i in range(len(m.selectedLink)):
+            m.scrabEachWebsite(m.selectedLink[i])
          
         finished = time.perf_counter()
         print( finished - start )
