@@ -16,7 +16,8 @@
 
 /* Variables */
 
-:root {
+:root
+{
   --primary-color: rgb(150, 143, 143);
   --scrollbar-color: rgb(182, 182, 197);
 }
