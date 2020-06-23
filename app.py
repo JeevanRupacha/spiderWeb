@@ -38,7 +38,7 @@ def getFormValues():
             with ThreadPoolExecutor() as executor:
                 resutls = executor.map( searchClass.scrabEachWebsite,searchClass.selectedLink)
             finished = time.perf_counter()
-            print("parsing data" + (finished - start) )
+            print(finished - start)
         except Exception as e: print(e)
 
 
