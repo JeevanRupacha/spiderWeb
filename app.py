@@ -14,7 +14,7 @@ searchClass = Searching.SearchClass()
 #headers for requests the url 
 @app.route('/')
 def render_html():
-    return render_template('./index.html',html=searchClass.searchResultDataLists,length=len(searchClass.selectedLink),selectedLink=searchClass.selectedLink,selectedTitle=searchClass.selectedTitle)
+    return render_template('./index.html',length = 0)
 #on submit the form router
 @app.route('/submit_form', methods=['POST', 'GET'])
 def getFormValues():
@@ -36,13 +36,13 @@ def getFormValues():
 
         try:
             with ThreadPoolExecutor() as executor:
-                resutls = executor.map( searchClass.scrabEachWebsite,searchClass.selectedLink)
+                resutls = executor.map( searchClass.scrabEachWebsite,searchClass.selectedLink,searchClass.selectedTitle)
             finished = time.perf_counter()
             print(finished - start)
         except Exception as e: print(e)
 
 
-        return render_template('./index.html',submitform ="true",html=searchClass.searchResultDataLists,length=len(searchClass.selectedLink),selectedLink=searchClass.selectedLink,selectedTitle=searchClass.selectedTitle)
+        return render_template('./index.html',submitform ="true",html=searchClass.searchResultDataLists,length=len(searchClass.searchResultDataLists))
     else:
         return "submiting from error"
 

@@ -63,10 +63,10 @@
 
             {%for i in range(length)%}
             <div class="result-component">
-                <h3>{{selectedTitle[i]}}</h3>
-                <a href="{{selectedLink[i]}}" target="_blank">{{selectedLink[i]}}</a>
+                <h3>{{html[i]['title']}}</h3>
+                <a href="{{html[i]['url']}}" target="_blank">{{html[i]['url']}}</a>
                 <div class="content">
-                    {{html[i]}}
+                    {{html[i]['data']}}
                 </div>
             </div>
             {%endfor%}

@@ -60,18 +60,18 @@ class SearchClass:
     
 
     #calcuation for each linked website function 
-    def scrabEachWebsite(self, url):       
+    def scrabEachWebsite(self, url,title):       
         if "youtube.com" not in url:
             try:
                 responseweb = requests.get(url, headers=self.headers)
                 if responseweb:
                     soupweb = BeautifulSoup(responseweb.text, 'lxml')
-                    self.webDataExtract(soupweb)
+                    self.webDataExtract(soupweb,url,title)
                 else:
-                    return
+                    self.webDataExtract(" ",url,title)
 
             except Exception as e: print(e)
-           
+        self.webDataExtract(" ",url,title)
         
 
 
@@ -83,52 +83,56 @@ class SearchClass:
 
     #Extract the web data
     #this is algorithm for filtering the web data
-    def webDataExtract(self,soup):
+    def webDataExtract(self,soup,url,title):
         #check article tag
         if (soup.find('article')):
             child = soup.find('article').find_all('div')
-            return self.articleExtractor(child)
+            return self.articleExtractor(child,url,title)
 
         #content id tag
         if (soup.find(id={'content'})):
             child = soup.find(id={'content'}).find_all('div')
-            return self.articleExtractor(child)
+            return self.articleExtractor(child,url,title)
 
         #content class tag
         if (soup.find(class_={'content'})):
             child = soup.find(class_={'content'}).find_all('div')
-            return self.articleExtractor(child)
+            return self.articleExtractor(child,url,title)
 
         #content-main id tag
         if (soup.find(id={'content-main'})):
             child = soup.find(id={'content-main'}).find_all('div')
-            return self.articleExtractor(child)
+            return self.articleExtractor(child,url,title)
 
         #content-main class tag
         if (soup.find(class_={'content-main'})):
             child = soup.find(class_={'content-main'}).find_all('div')
-            return self.articleExtractor(child)
+            return self.articleExtractor(child,url,title)
         
         #content-main id tag
         if (soup.find(id={'main_content'})):
             child = soup.find(id={'main_content'}).find_all('div')
-            return self.articleExtractor(child)
+            return self.articleExtractor(child,url,title)
 
         #content-main class tag
         if (soup.find(class_={'article-container'})):
             child = soup.find(class_={'content-main'}).find_all('div')
-            return self.articleExtractor(child)
+            return self.articleExtractor(child,url,title)
 
-        return
+        return self.articleExtractor(" ",url,title)
 
     # article extracting function *only by article tag
     #Extracts the all children od article tag i.e div tag and take largest length div
-    def articleExtractor(self,child):
+    def articleExtractor(self, child, url, title):
+        print("testing for url title")
+        print(url)
+        print(title)
         big = ""
-        for div in child:
-            if(len(big)< len(div)):
-                big = div
-        self.searchResultDataLists.append(Markup(big))
+        if child:
+            for div in child:
+                if(len(big)< len(div)):
+                    big = div
+        self.searchResultDataLists.append({'url':url,'title':title,'data':Markup(big)})
 
 
     
