@@ -8,3 +8,4 @@ Werkzeug==1.0.1
 requests==2.24.0 
 BeautifulSoup4==4.9.1
 bs4==0.0.1
+lxml==4.5.1
