@@ -27,8 +27,10 @@ class SearchClass:
     def searchFun(self,search):
         self.selectedLink.clear()   
         self.selectedTitle.clear()
-        self.searchResultDataLists.clear()   
-        response = requests.get("https://www.google.com/search?q=" + search,headers = self.headers)
+        self.searchResultDataLists.clear()
+        try: 
+            response = requests.get("https://www.google.com/search?q=" + search, headers=self.headers)
+        except Exception as e: print(e)
         soup = BeautifulSoup(response.text, 'lxml')
         #google result kCrYT class contains the links tags 
         #selecting <a> tag inside all the kCrYT class
@@ -60,9 +62,15 @@ class SearchClass:
     #calcuation for each linked website function 
     def scrabEachWebsite(self, url):       
         if "youtube.com" not in url:
-            responseweb = requests.get(url,headers=self.headers)
-            soupweb = BeautifulSoup(responseweb.text, 'lxml')
-            self.webDataExtract(soupweb)
+            try:
+                responseweb = requests.get(url, headers=self.headers)
+                if responseweb:
+                    soupweb = BeautifulSoup(responseweb.text, 'lxml')
+                    self.webDataExtract(soupweb)
+                else:
+                    return
+
+            except Exception as e: print(e)
            
         
 
@@ -111,7 +119,7 @@ class SearchClass:
             child = soup.find(class_={'content-main'}).find_all('div')
             return self.articleExtractor(child)
 
-
+        return
 
     # article extracting function *only by article tag
     #Extracts the all children od article tag i.e div tag and take largest length div
