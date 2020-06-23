@@ -46,3 +46,7 @@ def getFormValues():
     else:
         return "submiting from error"
 
+if __name__ == '__main__': 
+    app.debug = True
+    app.run()
+    app.run(debug = True)
